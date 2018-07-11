@@ -58,6 +58,9 @@
         ]
       }
     },
+    beforeMount() {
+      this.allChosen();
+    },
     methods: {
       allChosen() {
         this.isAll = true;
