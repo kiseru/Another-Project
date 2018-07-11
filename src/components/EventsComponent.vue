@@ -33,29 +33,7 @@
     data() {
       return {
         isAll: true,
-        events: [
-          {
-            description: "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Assumenda consequatur consequuntur\n" +
-            "        cumque deleniti dignissimos dolores ea eligendi impedit in iste itaque laboriosam modi nemo nobis, omnis\n" +
-            "        perspiciatis quibusdam sed veritatis. Alias amet animi, consectetur deserunt doloribus eos est expedita nisi\n" +
-            "        numquam, odit omnis perspiciatis provident quos voluptas voluptatem. Accusantium adipisci aspernatur deleniti\n" +
-            "        dolorem molestias nostrum odio quia reiciendis soluta voluptate? Ab aperiam commodi, consectetur corporis\n" +
-            "        cumque, dicta dolor, eaque error et eum expedita explicabo facilis fugiat incidunt laboriosam nesciunt nulla\n" +
-            "        odit quasi quia reiciendis repellendus sapiente unde veniam veritatis voluptates.",
-            id: 0,
-            name: "Lorem ipsum dolor sit amet.",
-            owner: {
-              birthDate: "2018-07-11T10:55:18.882Z",
-              email: "string",
-              firstName: "Somebody",
-              id: 0,
-              middleName: "string",
-              role: "string",
-              secondName: "Sirname"
-            },
-            siteUrl: "string"
-          }
-        ]
+        events: []
       }
     },
     beforeMount() {
