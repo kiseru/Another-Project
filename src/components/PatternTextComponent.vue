@@ -1,6 +1,6 @@
 <template>
   <div class="m-2">
-    <label>{{patternElement.name}}
+    <label>{{patternElement.name}}<span class="text-danger" v-if="patternElement.required">*</span>
       <input class="ml-2" type="text">
     </label>
   </div>

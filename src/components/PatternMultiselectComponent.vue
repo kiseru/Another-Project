@@ -1,6 +1,6 @@
 <template>
   <div class="mt-2">
-    <p class="mb-0">{{patternElement.name}}</p>
+    <p class="mb-0">{{patternElement.name}}<span class="text-danger" v-if="patternElement.required">*</span></p>
     <multiselect v-model="selected"
                  :options="patternElement.selectableValue"
                  :multiple="true"
