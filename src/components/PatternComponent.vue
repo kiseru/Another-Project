@@ -10,6 +10,7 @@
 </template>
 
 <script>
+  import axios from "axios";
   import PatternElementComponent from "./PatternElementComponent";
 
   export default {
@@ -19,123 +20,12 @@
     },
     data() {
       return {
-        pattern: {
-          "applicationName": "Something interesting",
-          "description": "string",
-          "elements": [
-            {
-              "description": "string",
-              "id": 0,
-              "layoutX": 0,
-              "layoutY": 0,
-              "name": "TEXT",
-              "required": true,
-              "selectableValue": [
-                "string"
-              ],
-              "type": "TEXT"
-            },
-            {
-              "description": "string",
-              "id": 0,
-              "layoutX": 0,
-              "layoutY": 0,
-              "name": "COMBOBOX",
-              "required": true,
-              "selectableValue": [
-                "string",
-                "string1",
-                "string2",
-                "string3",
-                "string4",
-                "string5",
-                "string6"
-              ],
-              "type": "COMBOBOX"
-            },
-            {
-              "description": "string",
-              "id": 0,
-              "layoutX": 0,
-              "layoutY": 0,
-              "name": "CHECKBOX",
-              "required": true,
-              "selectableValue": [
-                "string",
-                "string1",
-                "string2",
-                "string3",
-                "string4",
-                "string5",
-                "string6"
-              ],
-              "type": "CHECKBOX"
-            },
-            {
-              "description": "string",
-              "id": 0,
-              "layoutX": 0,
-              "layoutY": 0,
-              "name": "RADIOBUTTON",
-              "required": true,
-              "selectableValue": [
-                "string",
-                "string1",
-                "string2",
-                "string3",
-                "string4",
-                "string5",
-                "string6"
-              ],
-              "type": "RADIOBUTTON"
-            },
-            {
-              "description": "string",
-              "id": 0,
-              "layoutX": 0,
-              "layoutY": 0,
-              "name": "MULTISELECT",
-              "required": true,
-              "selectableValue": [
-                "string",
-                "string1",
-                "string2",
-                "string3",
-                "string4",
-                "string5",
-                "string6",
-                "string7",
-                "string8",
-                "string9",
-                "string10",
-                "string11",
-                "string12",
-                "string13",
-                "string14"
-              ],
-              "type": "MULTISELECT"
-            }
-          ],
-          "endDate": "2018-07-11T10:55:18.960Z",
-          "event": {
-            "description": "string",
-            "id": 0,
-            "name": "string",
-            "owner": {
-              "birthDate": "2018-07-11T10:55:18.960Z",
-              "email": "string",
-              "firstName": "string",
-              "id": 0,
-              "middleName": "string",
-              "role": "string",
-              "secondName": "string"
-            },
-            "siteUrl": "string"
-          },
-          "id": 0,
-          "startDate": "2018-07-11T10:55:18.960Z"
-        }
+        pattern: null
       }
+    },
+    beforeMount() {
+      axios.get(`/users/events/${this.$route.params.id}/pattern`)
+        .then(response => this.pattern = response.data);
     }
   }
 </script>
