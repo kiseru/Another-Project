@@ -1,7 +1,7 @@
 <template>
   <div class="m-2">
     <label>{{patternElement.name}}<span class="text-danger" v-if="patternElement.required">*</span>
-      <input class="ml-2" type="text">
+      <input class="ml-2" v-model="selected" type="text" placeholder="Type something">
     </label>
   </div>
 </template>
@@ -9,7 +9,15 @@
   export default {
     name: 'pattern-text-component',
     props: {
-      patternElement: {}
+      patternElement: {
+        type: Object,
+        required: true
+      }
+    },
+    data() {
+      return {
+        selected: ""
+      }
     }
   }
 </script>
