@@ -1,6 +1,6 @@
 <template>
-  <div class="m-2">
-    <p class="mb-0">{{patternElement.name}}<span class="text-danger" v-if="patternElement.required">*</span></p>
+  <div class="form-group m-2">
+    <label class="mb-0">{{patternElement.name}}<span class="text-danger" v-if="patternElement.required">*</span></label>
     <multiselect v-model="selected"
                  :options="patternElement.selectableValue"
                  :close-on-select="true"

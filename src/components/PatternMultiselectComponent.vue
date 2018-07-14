@@ -54,16 +54,16 @@
 
     .multiselect__tags {
       display: block;
-      font-size: 14px;
-      border: 1px solid #6c757d;
-      border-radius: 8px;
-      padding: 8px;
+      font-size: 1rem;
+      border: 1px solid #ced4da;
+      border-radius: .25rem;
+      padding: .375rem .75rem;
 
       .multiselect__tags-wrap {
         display: inline-block;
 
         .multiselect__tag {
-          background: #343a40;
+          background: #007bff;
           color: #fff;
           padding: 5px;
           border-radius: 5px;
@@ -125,13 +125,13 @@
           }
 
           .multiselect__option--selected {
-            background: #343a40;
+            background: #007bff;
             color: #fff;
             font-weight: 700;
           }
 
           .multiselect__option--highlight {
-            background: #20c997;
+            background: #007bff;
             color: #fff;
             font-weight: 700;
           }
