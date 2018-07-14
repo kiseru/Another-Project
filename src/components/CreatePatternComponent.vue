@@ -36,19 +36,9 @@
 </template>
 
 <script>
+  import PatternElement from './../PatternElement';
   import PatternElementComponent from './PatternElementComponent';
   import PatternElementSettingsComponent from './PatternElementSettingsComponent';
-
-  const fieldElement = {
-    "description": "string",
-    "id": 0,
-    "layoutX": 0,
-    "layoutY": 0,
-    "name": "string",
-    "required": false,
-    "selectableValue": [],
-    "type": "TEXT"
-  };
 
   export default {
     name: "CreatePatternComponent",
@@ -63,32 +53,21 @@
     },
     methods: {
       addTextField() {
-        let textFieldElement = Object.assign({}, fieldElement);
-        this.fields.push(textFieldElement);
+        return this.fields.push(new PatternElement('TEXT'));
       },
       addComboboxField() {
-        let comboboxFieldElement = Object.assign({}, fieldElement);
-        comboboxFieldElement.type = "COMBOBOX";
-        this.fields.push(comboboxFieldElement);
+        return this.fields.push(new PatternElement('COMBOBOX'));
       },
       addCheckboxesField() {
-        let checkboxesFieldElement = Object.assign({}, fieldElement);
-        checkboxesFieldElement.type = "CHECKBOX";
-        this.fields.push(checkboxesFieldElement);
+        return this.fields.push(new PatternElement('CHECKBOX'));
       },
       addRadioButtonsField() {
-        let comboboxFieldElement = Object.assign({}, fieldElement);
-        comboboxFieldElement.type = "RADIOBUTTON";
-        this.fields.push(comboboxFieldElement);
+        return this.fields.push(new PatternElement('RADIOBUTTON'));
       },
-      addMultiselectField() {
-        let comboboxFieldElement = Object.assign({}, fieldElement);
-        comboboxFieldElement.type = "MULTISELECT";
-        this.fields.push(comboboxFieldElement);
+      addMultiselectField()  {
+        return this.fields.push(new PatternElement('MULTISELECT'));
       },
-      createPattern() {
-        alert('TODO create pattern')
-      }
+      createPattern: () => alert('TODO create pattern')
     }
   }
 </script>
