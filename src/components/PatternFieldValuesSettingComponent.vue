@@ -7,8 +7,13 @@
         <button class="btn btn-sm btn-primary h-auto ml-1 px-2 py-0" @click="removeValue">X</button>
       </div>
     </div>
-    <input class="mx-1" type="text" v-model="newValue">
-    <button class="btn btn-primary mx-1" @click="addValue">Add</button>
+    <div class="form-group pt-2">
+      <label>New value</label>
+      <div class="d-flex">
+        <input class="form-control mx-1" type="text" v-model="newValue">
+        <button class="btn btn-primary mx-1" @click="addValue">Add</button>
+      </div>
+    </div>
   </div>
 </template>
 <script>
