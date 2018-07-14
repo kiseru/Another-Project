@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div class="p-1">
     <pattern-field-name-setting-component :pattern-element="patternElement"/>
 
     <pattern-field-required-setting-component :pattern-element="patternElement"/>

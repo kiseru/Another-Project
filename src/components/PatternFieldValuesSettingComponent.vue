@@ -1,17 +1,17 @@
 <template>
   <div class="p-1">
     <div class="d-flex flex-wrap">
-      <p class="mb-0 mt-1 mr-2 align-middle">Selectable values:</p>
+      <p class="mb-0 mt-1 mr-2 align-middle">Варианты:</p>
       <div class="bg-primary rounded text-white mr-1 mb-1 d-flex" v-for="value in patternElement.selectableValue">
         <span class="py-1 pl-1">{{value}}</span>
         <button class="btn btn-sm btn-primary h-auto ml-1 px-2 py-0" @click="removeValue">X</button>
       </div>
     </div>
     <div class="form-group pt-2">
-      <label>New value</label>
+      <label>Добавить вариант</label>
       <div class="d-flex">
         <input class="form-control mx-1" type="text" v-model="newValue">
-        <button class="btn btn-primary mx-1" @click="addValue">Add</button>
+        <button class="btn btn-primary mx-1" @click="addValue">Добавить</button>
       </div>
     </div>
   </div>

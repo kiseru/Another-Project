@@ -4,7 +4,7 @@
     <multiselect v-model="selected"
                  :options="patternElement.selectableValue"
                  :close-on-select="true"
-                 placeholder="Choose one..."
+                 placeholder="Выберите..."
                  :searchable="true"
                  :optionHeight="40"
                  :showLabels="false"

@@ -1,7 +1,7 @@
 <template>
   <div class="form-group p-1">
     <label>
-      Name:
+      Название:
       <input type="text" class="form-control" v-model="patternElement.name">
     </label>
   </div>

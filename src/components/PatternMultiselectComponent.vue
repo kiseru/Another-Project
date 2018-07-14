@@ -6,7 +6,7 @@
                  :multiple="true"
                  :close-on-select="false"
                  :clear-on-select="true"
-                 placeholder="Pick some"
+                 placeholder="Выберите несколько"
                  :searchable="true"
                  :optionHeight="40"
                  :showLabels="false"
