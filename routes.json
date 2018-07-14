@@ -1,0 +1,6 @@
+[
+  "/events",
+  "/events/:id",
+  "/events/:id/pattern",
+  "/events/:id/pattern/new"
+]
