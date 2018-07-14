@@ -9,12 +9,17 @@
     </div>
 
     <div class="fields-wrapper">
-      <div v-for="field in fields" class="bg-white p-2 mt-3 rounded shadow d-flex p-2">
+      <div :id="`field${index}`" v-for="(field, index) in fields" class="bg-white p-2 mt-3 rounded shadow d-flex p-2">
         <div class="flex-fill w-50 p-2">
           <pattern-element-component :pattern-element="field"/>
         </div>
         <div class="flex-fill w-50 p-2 border-left border-primary">
           <pattern-element-settings-component :pattern-element="field"/>
+        </div>
+        <div class="flex-fill">
+          <i class="material-icons clear-icon" @click="removeField">
+            clear
+          </i>
         </div>
       </div>
     </div>
@@ -77,11 +82,22 @@
       addMultiselectField()  {
         return this.fields.push(new PatternElement('MULTISELECT'));
       },
-      createPattern: () => alert('TODO create pattern')
+      createPattern: () => alert('TODO create pattern'),
+      removeField(event) {
+        let fieldIndex = Number.parseInt(event.target.parentElement.parentElement.id.replace('field', ''));
+        this.fields.splice(fieldIndex, 1)
+      }
     }
   }
 </script>
 
-<style scoped>
+<style lang="less" scoped>
+  .clear-icon {
+    transition: ease 0.3s;
+    cursor: pointer;
 
+    &:hover {
+      color: #dc3545;
+    }
+  }
 </style>
