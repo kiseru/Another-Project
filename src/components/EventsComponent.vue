@@ -1,8 +1,9 @@
 <template>
   <main role="main" class="container">
     <div class="d-flex align-items-center justify-content-between p-3 px-4 my-3 text-white bg-dark rounded shadow-box">
-      <div class="lh-100">
-        <h4 class="mb-0 pb-0 text-white lh-100">Events</h4>
+      <div class="d-flex flex-row">
+        <h4 class="pt-1 mb-0 pb-0 mr-2 text-white lh-100">События</h4>
+
         <div class="btn-group btn-group-toggle">
           <label v-bind:class="['btn', 'btn-secondary', { active: isAll }]" v-on:click="allChosen">
             <input type="radio" id="option1" autocomplete="off" v-bind:checked="isAll"/>All
@@ -13,7 +14,7 @@
         </div>
       </div>
       <div>
-        <a href="/events/new" class="btn btn-light btn-sm">Create event</a>
+        <a href="/events/new" class="btn btn-light btn-sm">Создать событие</a>
       </div>
     </div>
 

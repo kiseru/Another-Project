@@ -4,7 +4,7 @@
       <h4 class="border-bottom border-dark p-0 m-0">{{event.name}}</h4>
       <p class="mt-3">{{event.description}}</p>
       <div class="d-flex flex-row-reverse">
-        <p class="mb-0 font-weight-light font-italic">Author: {{event.owner.firstName}} {{event.owner.secondName}}</p>
+        <p class="mb-0 font-weight-light font-italic">Автор: {{event.owner.firstName}} {{event.owner.secondName}}</p>
       </div>
     </a>
   </div>
