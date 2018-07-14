@@ -12,7 +12,7 @@
           </div>
         </div>
       </div>
-      <div class="text-center mt-2">
+      <div class="text-center p-2">
         <div class="dropdown">
           <button class="btn btn-primary dropdown-toggle" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" area-expanded="false">
             Add field
@@ -26,6 +26,10 @@
             <button class="dropdown-item" @click="addMultiselectField">Add multiselect field</button>
           </div>
         </div>
+      </div>
+
+      <div class="text-center p-2 border-top border-dark">
+        <button class="btn btn-primary" @click="createPattern">Create pattern</button>
       </div>
     </div>
   </main>
@@ -81,6 +85,9 @@
         let comboboxFieldElement = Object.assign({}, fieldElement);
         comboboxFieldElement.type = "MULTISELECT";
         this.fields.push(comboboxFieldElement);
+      },
+      createPattern() {
+        alert('TODO create pattern')
       }
     }
   }
