@@ -1,8 +1,8 @@
 <template>
-  <div class="p-1">
+  <div class="form-group p-1">
     <label>
       Name:
-      <input type="text" v-model="patternElement.name">
+      <input type="text" class="form-control" v-model="patternElement.name">
     </label>
   </div>
 </template>
