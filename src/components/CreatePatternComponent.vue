@@ -1,6 +1,6 @@
 <template>
   <main role="main" class="container">
-    <div class="bg-white p-3 rounded shadow">
+    <div class="bg-white p-3 rounded shadow mb-5">
       <h3 class="border-bottom border-dark pl-3 mt-2">Creating new pattern</h3>
       <div class="fields-wrapper">
         <div v-for="field in fields" class="border-bottom border-dark d-flex p-2">
