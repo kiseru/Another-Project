@@ -24,7 +24,7 @@
       }
     },
     beforeMount() {
-      axios.get(`/users/events/${this.$route.params.id}/pattern`)
+      axios.get(`${this.$store.state.globalUrl}/users/events/${this.$route.params.id}/pattern`)
         .then(response => this.pattern = response.data);
     }
   }
