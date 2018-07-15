@@ -16,7 +16,8 @@
     </div>
 
     <div class="fields-wrapper">
-      <div :id="`field${index}`" v-for="(field, index) in pattern.elements" class="bg-white p-2 mt-3 rounded shadow d-flex p-2">
+      <div :id="`field${index}`" v-for="(field, index) in pattern.elements"
+           class="bg-white p-2 mt-3 rounded shadow d-flex p-2">
         <div class="flex-fill w-50 p-2">
           <pattern-element-component :pattern-element="field"/>
         </div>
@@ -39,7 +40,8 @@
 
       <div class="text-center p-2">
         <div class="dropdown">
-          <button class="btn btn-primary dropdown-toggle" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" area-expanded="false">
+          <button class="btn btn-primary dropdown-toggle" id="dropdownMenuButton" data-toggle="dropdown"
+                  aria-haspopup="true" area-expanded="false">
             Добавить поле
           </button>
 
@@ -73,9 +75,7 @@
         pattern: {
           applicationName: "",
           description: null,
-          elements: [
-
-          ],
+          elements: [],
           endDate: null,
           event: null,
           id: null,
@@ -96,11 +96,15 @@
       addRadioButtonsField() {
         return this.pattern.elements.push(this.$store.getters["pattern/getPatternRadioButtonsElement"]);
       },
-      addMultiSelectField()  {
+      addMultiSelectField() {
         return this.pattern.elements.push(this.$store.getters["pattern/getPatternMultiSelectElement"]);
       },
       createPattern() {
-        axios.post(`${this.$store.state.globalUrl}/organizers/events/${this.$route.params.id}/pattern`, this.pattern);
+        axios.post(
+          `${this.$store.state.globalUrl}/organizers/events/${this.$route.params.id}/pattern`,
+          this.pattern,
+          {headers: {"Auth-Token": this.$store.state.authToken}}
+        );
       },
       removeField(event) {
         let fieldIndex = Number.parseInt(event.target.parentElement.parentElement.id.replace('field', ''));
