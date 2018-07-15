@@ -45,10 +45,10 @@
 
           <div class="dropdown-menu" aria-labelledby="dropbdownMenuButton">
             <button class="dropdown-item" @click="addTextField">Добавить текстовое поле</button>
-            <button class="dropdown-item" @click="addComboboxField">Добавить поле ComboBox</button>
+            <button class="dropdown-item" @click="addComboBoxField">Добавить поле ComboBox</button>
             <button class="dropdown-item" @click="addCheckboxesField">Добавить поле Checkbox</button>
             <button class="dropdown-item" @click="addRadioButtonsField">Добавить поле RadioButtons</button>
-            <button class="dropdown-item" @click="addMultiselectField">Добавить поле MultiSelect</button>
+            <button class="dropdown-item" @click="addMultiSelectField">Добавить поле MultiSelect</button>
           </div>
         </div>
       </div>
@@ -59,7 +59,6 @@
 
 <script>
   import axios from 'axios';
-  import PatternElement from './../PatternElement';
   import PatternElementComponent from './PatternElementComponent';
   import PatternElementSettingsComponent from './PatternElementSettingsComponent';
 
@@ -86,19 +85,19 @@
     },
     methods: {
       addTextField() {
-        return this.pattern.elements.push(new PatternElement('TEXT'));
+        return this.pattern.elements.push(this.$store.getters["pattern/getPatternTextElement"]);
       },
-      addComboboxField() {
-        return this.pattern.elements.push(new PatternElement('COMBOBOX'));
+      addComboBoxField() {
+        return this.pattern.elements.push(this.$store.getters["pattern/getPatternComboboxElement"]);
       },
       addCheckboxesField() {
-        return this.pattern.elements.push(new PatternElement('CHECKBOX'));
+        return this.pattern.elements.push(this.$store.getters["pattern/getPatternCheckboxElement"]);
       },
       addRadioButtonsField() {
-        return this.pattern.elements.push(new PatternElement('RADIOBUTTON'));
+        return this.pattern.elements.push(this.$store.getters["pattern/getPatternRadioButtonsElement"]);
       },
-      addMultiselectField()  {
-        return this.pattern.elements.push(new PatternElement('MULTISELECT'));
+      addMultiSelectField()  {
+        return this.pattern.elements.push(this.$store.getters["pattern/getPatternMultiSelectElement"]);
       },
       createPattern() {
         axios.post(`${this.$store.getters.globalUrl}/organizers/events/${this.$route.params.id}/pattern`, this.pattern);
