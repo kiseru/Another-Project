@@ -100,7 +100,7 @@
         return this.pattern.elements.push(this.$store.getters["pattern/getPatternMultiSelectElement"]);
       },
       createPattern() {
-        axios.post(`${this.$store.getters.globalUrl}/organizers/events/${this.$route.params.id}/pattern`, this.pattern);
+        axios.post(`${this.$store.state.globalUrl}/organizers/events/${this.$route.params.id}/pattern`, this.pattern);
       },
       removeField(event) {
         let fieldIndex = Number.parseInt(event.target.parentElement.parentElement.id.replace('field', ''));
