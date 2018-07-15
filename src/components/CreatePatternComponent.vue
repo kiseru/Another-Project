@@ -1,15 +1,22 @@
 <template>
   <main role="main" class="container">
-    <div class="bg-dark p-2 rounded shadow">
+    <div class="bg-dark p-2 rounded-top shadow">
       <h3 class="text-white pl-3 mt-2">Создать шаблон</h3>
     </div>
 
-    <div class="m-5 text-center" v-if="fields.length === 0">
+    <div class="bg-white p-2 rounded-bottom shadow">
+      <div class="form-inline">
+        <label class="mr-2 mb-0 w-auto flex-grow-1">Название приложения: </label>
+        <input class="form-control" type="text" v-model="pattern.applicationName">
+      </div>
+    </div>
+
+    <div class="m-5 text-center" v-if="pattern.elements.length === 0">
       <h1 class="text-secondary">Нужно добавить элементы</h1>
     </div>
 
     <div class="fields-wrapper">
-      <div :id="`field${index}`" v-for="(field, index) in fields" class="bg-white p-2 mt-3 rounded shadow d-flex p-2">
+      <div :id="`field${index}`" v-for="(field, index) in pattern.elements" class="bg-white p-2 mt-3 rounded shadow d-flex p-2">
         <div class="flex-fill w-50 p-2">
           <pattern-element-component :pattern-element="field"/>
         </div>
@@ -51,6 +58,7 @@
 </template>
 
 <script>
+  import axios from 'axios';
   import PatternElement from './../PatternElement';
   import PatternElementComponent from './PatternElementComponent';
   import PatternElementSettingsComponent from './PatternElementSettingsComponent';
@@ -63,29 +71,41 @@
     },
     data() {
       return {
-        fields: []
+        pattern: {
+          applicationName: "",
+          description: null,
+          elements: [
+
+          ],
+          endDate: null,
+          event: null,
+          id: null,
+          startDate: null
+        },
       }
     },
     methods: {
       addTextField() {
-        return this.fields.push(new PatternElement('TEXT'));
+        return this.pattern.elements.push(new PatternElement('TEXT'));
       },
       addComboboxField() {
-        return this.fields.push(new PatternElement('COMBOBOX'));
+        return this.pattern.elements.push(new PatternElement('COMBOBOX'));
       },
       addCheckboxesField() {
-        return this.fields.push(new PatternElement('CHECKBOX'));
+        return this.pattern.elements.push(new PatternElement('CHECKBOX'));
       },
       addRadioButtonsField() {
-        return this.fields.push(new PatternElement('RADIOBUTTON'));
+        return this.pattern.elements.push(new PatternElement('RADIOBUTTON'));
       },
       addMultiselectField()  {
-        return this.fields.push(new PatternElement('MULTISELECT'));
+        return this.pattern.elements.push(new PatternElement('MULTISELECT'));
       },
-      createPattern: () => alert('TODO create pattern'),
+      createPattern() {
+        axios.post(`${this.$store.getters.globalUrl}/organizers/events/${this.$route.params.id}/pattern`, this.pattern);
+      },
       removeField(event) {
         let fieldIndex = Number.parseInt(event.target.parentElement.parentElement.id.replace('field', ''));
-        this.fields.splice(fieldIndex, 1)
+        this.pattern.elements.splice(fieldIndex, 1)
       }
     }
   }

@@ -1,3 +1,3 @@
 export default {
-  globalUrl: () => 'grant-sys.herokuapp.com'
+  globalUrl: () => 'http://grant-sys.herokuapp.com'
 }
