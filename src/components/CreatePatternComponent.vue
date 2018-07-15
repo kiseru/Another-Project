@@ -74,12 +74,7 @@
       return {
         pattern: {
           applicationName: "",
-          description: null,
           elements: [],
-          endDate: null,
-          event: null,
-          id: null,
-          startDate: null
         },
       }
     },
