@@ -57,11 +57,11 @@
     data() {
       return {
         newEvent: {
-          description: "string",
-          endDate: "2018-07-15T13:25:49.874Z",
-          name: "string",
-          siteUrl: "string",
-          startDate: "2018-07-15T13:25:49.874Z"
+          description: "",
+          endDate: "",
+          name: "",
+          siteUrl: "",
+          startDate: ""
         }
       }
     },
