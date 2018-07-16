@@ -2,5 +2,6 @@
   "/events",
   "/events/:id",
   "/events/:id/pattern",
-  "/events/:id/pattern/new"
+  "/organizers/events/new",
+  "/organizers/events/:id/pattern/new"
 ]
