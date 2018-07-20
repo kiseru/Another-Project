@@ -4,6 +4,7 @@
   "/events/:id/pattern",
   "/organizers/events/new",
   "/organizers/events/:id/pattern/new",
+  "/signup",
   "/login",
   "/"
 ]
