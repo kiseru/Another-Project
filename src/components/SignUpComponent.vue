@@ -81,6 +81,9 @@
                  id="emailInput"
                  type="email"
                  v-model="user.email">
+          <div class="alert alert-danger mt-2"
+               v-if="!validations.emailValid">Неверно введен e-mail
+          </div>
         </div>
 
         <div class="form-group">
@@ -89,6 +92,9 @@
                  id="passwordInput"
                  type="password"
                  v-model="user.password">
+          <div class="alert alert-danger mt-2"
+               v-if="!validations.passwordValid">Пароль должен содержать больше 6 и меньше 40 символов
+          </div>
         </div>
 
         <div class="form-group">
@@ -97,6 +103,9 @@
                  id="passwordConfirmationInput"
                  type="password"
                  v-model="passwordConfirmation">
+          <div class="alert alert-danger mt-2"
+               v-if="!validations.confirmationPasswordValid">Пароль должен содержать больше 6 и меньше 40 символов
+          </div>
         </div>
       </div>
 
@@ -131,6 +140,11 @@
         },
         date: {
           daysInMonth: [],
+        },
+        validations: {
+          emailValid: true,
+          passwordValid: true,
+          confirmationPasswordValid: true
         }
       }
     },
@@ -169,9 +183,23 @@
       "birthDate.month"() {
         this.uploadDaysList();
       },
-      "birthDate.year"() {
+      "birthDate.year"(newYear, oldYear) {
         this.uploadDaysList();
-      }
+        let currentYear = new Date().getFullYear();
+        if (currentYear < newYear) {
+          this.birthDate.year = currentYear;
+        }
+      },
+      "user.email"(newEmail, oldEmail) {
+        const regex = /^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,6}$/i;
+        this.validations.emailValid = newEmail.search(regex) !== -1;
+      },
+      "user.password"(newPassword, oldPassword) {
+        this.validations.passwordValid = newPassword.length >= 6 && newPassword.length <= 40;
+      },
+      passwordConfirmation(newPassword, oldPassword) {
+        this.validations.confirmationPasswordValid = newPassword.length >= 6 && newPassword.length <= 40;
+      },
     }
   }
 </script>
