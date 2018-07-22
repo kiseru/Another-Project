@@ -102,7 +102,8 @@
 
       <div class="pt-3">
         <button class="btn btn-primary w-100"
-                @click="registerUser">Зарегистрироваться</button>
+                @click="registerUser">Зарегистрироваться
+        </button>
       </div>
     </div>
   </main>
@@ -134,8 +135,10 @@
       registerUser() {
         this.user.birthDate = `${this.birthDate.year}-${this.birthDate.month}-${this.birthDate.day}`
         axios.post(
-          `${this.$store.state.globalUrl}/users/registration`
-        );
+          `${this.$store.state.globalUrl}/users/registration`,
+          this.user
+        ).then(response => this.$store.commit('changeResponse', response.data.message))
+          .then(response => window.location = "/signup/finish")
       }
     }
   }

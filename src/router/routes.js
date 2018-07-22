@@ -5,6 +5,7 @@ import EventsComponent from '../components/EventsComponent';
 import LogInComponent from '../components/LogInComponent';
 import PatternComponent from '../components/PatternComponent';
 import SignUpComponent from '../components/SignUpComponent';
+import SignUpFinishComponent from '../components/SignUpFinishComponent';
 
 export default [
   {path: '/events/:id/pattern', component: PatternComponent},
@@ -12,6 +13,7 @@ export default [
   {path: '/events', component: EventsComponent},
   {path: '/organizers/events/new', component: CreatingEventComponent},
   {path: '/organizers/events/:id/pattern/new', component: CreatePatternComponent},
+  {path: '/signup/finish', component: SignUpFinishComponent},
   {path: '/signup', component: SignUpComponent},
   {path: '/login', component: LogInComponent},
   {path: '/', component: LogInComponent}
