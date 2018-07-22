@@ -34,12 +34,13 @@
           <div class="d-flex">
             <div class="input-group">
               <label class="sr-only" for="birthDayInput">День</label>
-              <input class="form-control mr-2"
-                     id="birthDayInput"
-                     type="number"
-                     min="0"
-                     placeholder="День"
-                     v-model="birthDate.day">
+              <select class="form-control mr-2"
+                      id="birthDayInput"
+                      v-model="birthDate.day">
+                <option v-for="day in date.daysInMonth"
+                        :value="day">{{day}}
+                </option>
+              </select>
             </div>
 
             <div class="input-group">
@@ -47,7 +48,6 @@
               <select class="form-control"
                       id="birthMonthInput"
                       v-model="birthDate.month">
-                <option value="0" selected>Месяц</option>
                 <option value="01">Январь</option>
                 <option value="02">Февраль</option>
                 <option value="03">Март</option>
@@ -125,11 +125,22 @@
         },
         passwordConfirmation: "",
         birthDate: {
-          day: null,
-          month: 0,
-          year: null
+          day: "",
+          month: "",
+          year: ""
+        },
+        date: {
+          daysInMonth: [],
         }
       }
+    },
+    beforeMount() {
+      let date = new Date();
+      this.birthDate.day = date.getDate().toString();
+      this.birthDate.month = (date.getMonth() + 1).toString();
+      this.birthDate.year = date.getFullYear().toString();
+      if (this.birthDate.month.length === 1) this.birthDate.month = `0${this.birthDate.month}`;
+      this.uploadDaysList();
     },
     methods: {
       registerUser() {
@@ -139,6 +150,27 @@
           this.user
         ).then(response => this.$store.commit('changeResponse', response.data.message))
           .then(response => window.location = "/signup/finish")
+      },
+      uploadDaysList() {
+        this.date.daysInMonth = [];
+
+        for (let i = 1; i <= 28; i++) this.date.daysInMonth.push(i.toString());
+
+        if (["01", "03", "05", "07", "08", "10", "12"].findIndex(value => this.birthDate.month === value) !== -1) {
+          this.date.daysInMonth.push("29", "30", "31");
+        } else if (this.birthDate.month !== "02") {
+          this.date.daysInMonth.push("29", "30");
+        } else if (new Date(`${this.birthDate.year}-02-29`).getDate() === 29) {
+          this.date.daysInMonth.push("29")
+        }
+      }
+    },
+    watch: {
+      "birthDate.month"() {
+        this.uploadDaysList();
+      },
+      "birthDate.year"() {
+        this.uploadDaysList();
       }
     }
   }
