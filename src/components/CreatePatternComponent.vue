@@ -50,7 +50,7 @@
             <button class="dropdown-item" @click="addComboBoxField">Добавить поле ComboBox</button>
             <button class="dropdown-item" @click="addCheckboxesField">Добавить поле Checkbox</button>
             <button class="dropdown-item" @click="addRadioButtonsField">Добавить поле RadioButtons</button>
-            <button class="dropdown-item" @click="addMultiSelectField">Добавить поле MultiSelect</button>
+            <!--<button class="dropdown-item" @click="addMultiSelectField">Добавить поле MultiSelect</button>-->
           </div>
         </div>
       </div>
