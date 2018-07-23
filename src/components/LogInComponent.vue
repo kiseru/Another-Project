@@ -36,6 +36,10 @@
                 @click="logIn">Войти
         </button>
       </div>
+
+      <div class="pt-3">
+        <a href="/signup">Нет аккаунта</a>
+      </div>
     </div>
   </main>
 </template>
