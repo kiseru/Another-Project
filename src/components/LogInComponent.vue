@@ -55,7 +55,7 @@
     },
     methods: {
       logIn() {
-        axios.post(`${this.$store.state.globalUrl}/users/login`, user);
+        axios.post(`${this.$store.state.globalUrl}/users/login`, this.user);
       }
     },
     watch: {
