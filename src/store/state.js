@@ -1,5 +1,5 @@
 export default {
   authToken: "",
-  globalUrl: 'http://grant-sys.herokuapp.com',
+  globalUrl: 'http://localhost:8888',
   responseAfterRegistration: ""
 }
