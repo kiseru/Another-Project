@@ -98,8 +98,8 @@
         axios.post(
           `${this.$store.state.globalUrl}/organizers/events/${this.$route.params.id}/pattern`,
           this.pattern,
-          {headers: {"Auth-Token": this.$store.state.authToken}}
-        );
+          {headers: {"Auth-Token": this.$cookies.get("authToken")}}
+        ).then(response => window.location = `/events/${response.data.event.id}/pattern`);
       },
       removeField(event) {
         let fieldIndex = Number.parseInt(event.target.parentElement.parentElement.id.replace('field', ''));
