@@ -104,15 +104,21 @@
                  type="password"
                  v-model="passwordConfirmation">
           <div class="alert alert-danger mt-2"
-               v-if="!validations.confirmationPasswordValid">Пароль должен содержать больше 6 и меньше 40 символов
+               v-if="!validations.confirmationPasswordValid">Пароль должен совпадать
           </div>
         </div>
       </div>
 
       <div class="pt-3">
         <button class="btn btn-primary w-100"
-                @click="registerUser">Зарегистрироваться
+                @click="registerUser"
+                :disabled="!validations.emailValid || !validations.passwordValid || !validations.confirmationPasswordValid">
+          Зарегистрироваться
         </button>
+      </div>
+
+      <div class="pt-3">
+        <a href="/">Уже есть аккаунт</a>
       </div>
     </div>
   </main>
@@ -198,7 +204,7 @@
         this.validations.passwordValid = newPassword.length >= 6 && newPassword.length <= 40;
       },
       passwordConfirmation(newPassword, oldPassword) {
-        this.validations.confirmationPasswordValid = newPassword.length >= 6 && newPassword.length <= 40;
+        this.validations.confirmationPasswordValid = newPassword === this.user.password
       },
     }
   }

@@ -33,7 +33,8 @@
 
       <div class="pt-2">
         <button class="btn btn-primary w-100"
-                @click="logIn">Войти
+                @click="logIn"
+                :disabled="!validations.emailValid || !validations.passwordValid">Войти
         </button>
       </div>
 
