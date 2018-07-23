@@ -2,6 +2,10 @@
   <main role="main" class="container pt-5">
     <div class="bg-white rounded p-3 shadow mx-auto text-center" style="width: 25rem">
       <h3 class="border-bottom">Войти</h3>
+      <div class="alert alert-danger"
+           v-if="error !== null">
+        {{error.message}}
+      </div>
       <div class="mt-3">
         <div class="form-group">
           <label for="loginInput">E-mail</label>
@@ -50,14 +54,21 @@
         validations: {
           emailValid: true,
           passwordValid: true
-        }
+        },
+        error: null
       }
     },
     methods: {
       logIn() {
         axios.post(`${this.$store.state.globalUrl}/users/login`, this.user)
-          .then(response => this.$cookies.set("authToken", response.data.token))
-          .then(response => window.location = "/events")
+          .then(response => {
+            if (response.status === 200) {
+              this.$cookies.set("authToken", response.data.token);
+              window.location = "/events"
+            } else {
+              this.error = response.data;
+            }
+          })
       }
     },
     watch: {
