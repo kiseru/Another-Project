@@ -71,9 +71,9 @@
       createEvent() {
         axios.post(
           `${this.$store.state.globalUrl}/organizers/events`,
-          event,
-          {headers: {"Auth-Token": this.$store.state.authToken}})
-          .then(response => window.location(`/organizers/events/${response.data.id}`));
+          this.newEvent,
+          {headers: {"Auth-Token": this.$cookies.get("authToken")}})
+          .then(response => window.location = `/events/${response.data.id}`);
       }
     }
   }
