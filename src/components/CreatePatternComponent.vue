@@ -55,6 +55,10 @@
         </div>
       </div>
 
+      <div class="text-center p-2">
+        <a :href="`/events/${this.$route.params.id}`" class="btn btn-primary">Назад</a>
+      </div>
+
     </div>
   </main>
 </template>
