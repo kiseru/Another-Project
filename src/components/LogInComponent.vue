@@ -55,7 +55,9 @@
     },
     methods: {
       logIn() {
-        axios.post(`${this.$store.state.globalUrl}/users/login`, this.user);
+        axios.post(`${this.$store.state.globalUrl}/users/login`, this.user)
+          .then(response => this.$cookies.set("authToken", response.data.token))
+          .then(response => window.location = "/events")
       }
     },
     watch: {
