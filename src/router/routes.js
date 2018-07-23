@@ -8,11 +8,11 @@ import SignUpComponent from '../components/SignUpComponent';
 import SignUpFinishComponent from '../components/SignUpFinishComponent';
 
 export default [
+  {path: '/events/new', component: CreatingEventComponent},
+  {path: '/events/:id/pattern/new', component: CreatePatternComponent},
   {path: '/events/:id/pattern', component: PatternComponent},
   {path: '/events/:id', component: EventComponent},
   {path: '/events', component: EventsComponent},
-  {path: '/organizers/events/new', component: CreatingEventComponent},
-  {path: '/organizers/events/:id/pattern/new', component: CreatePatternComponent},
   {path: '/signup/finish', component: SignUpFinishComponent},
   {path: '/signup', component: SignUpComponent},
   {path: '/login', component: LogInComponent},
