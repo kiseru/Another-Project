@@ -8,7 +8,6 @@
       </div>
     </div>
     <div class="d-flex flex-row-reverse bg-dark p-3 rounded shadow">
-      <a :href="`/events/${event.id}/pattern/new`" class="btn btn-success">Изменить заявку</a>
       <a :href="`/events/${event.id}/pattern`" class="btn btn-primary mr-2">Заполнить заявку</a>
     </div>
   </main>
